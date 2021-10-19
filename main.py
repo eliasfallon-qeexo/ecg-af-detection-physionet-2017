@@ -58,9 +58,9 @@ def get_training_data(data_dir=None, restore_stored=False):
 
     print("Features extraction finished", len(subX[0]))
 
-    print("Feature names")
-    for i, n in enumerate(fn):
-        print((i, n))
+    #print("Feature names")
+    #for i, n in enumerate(fn):
+    #    print((i, n))
 
     return np.array(subX), np.array(subY), fn
 

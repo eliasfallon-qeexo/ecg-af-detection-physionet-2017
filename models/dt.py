@@ -32,7 +32,7 @@ class RandomForestEcgModel(EcgModel):
             labels = indices
         else:
             labels = [features_names[i] for i in indices]
-
+        print("Top Features by Importance: ", labels[0:10])
         plt.figure()
         plt.title("Feature importances")
         plt.bar(range(len(importances)), importances[indices],
