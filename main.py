@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+import os
 import argparse
 import csv
 from functools import partial
@@ -52,7 +52,8 @@ def get_training_data(data_dir=None, restore_stored=False):
         print("Features extraction started")
         fn = extractor.get_feature_names(subX[0])
         subX = parallel.apply_async(subX, extractor.features_for_row)
-
+        if not path.isdir('outputs'):
+            os.mkdir('outputs')
         np.savez('outputs/processed.npz', x=subX, y=subY, fn=fn)
 
     print("Features extraction finished", len(subX[0]))
@@ -83,7 +84,7 @@ def train(args):
     model = get_raw_model(input_shape)
     model.fit(Xt, Yt, validation=(Xv, Yv))
     model.evaluate(Xv, Yv)
-    # model.show_feature_importances(features_names=fn)
+    model.show_feature_importances(features_names=fn)
 
 
 def classify(record, data_dir, clf=None):

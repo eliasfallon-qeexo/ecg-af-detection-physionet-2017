@@ -1,0 +1,22 @@
+name: ecg_af_detect_victorkifer
+
+channels:
+  - defaults
+  - conda-forge 
+dependencies:
+  - python
+  - python.app
+  - tensorflow
+  - keras
+  - pandas
+  - tqdm
+  - h5py
+  - numpy
+  - pywavelets
+  - matplotlib
+  - scikit-learn
+  - scipy
+  - pyqt >= 5.0
+  - joblib
+  - theano
+  - pip

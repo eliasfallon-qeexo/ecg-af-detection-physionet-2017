@@ -1,5 +1,5 @@
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.externals import joblib
+import joblib
 
 from models.base import EcgModel
 
